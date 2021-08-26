@@ -1,5 +1,7 @@
 import { 
   ImageFieldBuilder,
+  MySqlQueryExecutor,
+  PgQueryExecutor,
   SelectFieldBuilder,
   Singleton, 
   TextFieldBuilder 
@@ -58,3 +60,13 @@ console.log(textField2.getInfo());
 console.log(selectField.getInfo());
 console.log(imageField.getInfo());
 // End of Builder test
+
+// Factory Method test
+console.log('\n*** FACTORY METHOD TEST ***\n')
+
+const executor1 = new PgQueryExecutor();
+const executor2 = new MySqlQueryExecutor();
+
+executor1.execute('test 1');
+executor2.execute('test 2');
+// End of Factory Method test
