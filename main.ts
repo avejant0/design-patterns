@@ -1,6 +1,8 @@
 import { 
+  ExcelReportFactory,
   ImageFieldBuilder,
   MySqlQueryExecutor,
+  PdfReportFactory,
   PgQueryExecutor,
   SelectFieldBuilder,
   Singleton, 
@@ -70,3 +72,21 @@ const executor2 = new MySqlQueryExecutor();
 executor1.execute('test 1');
 executor2.execute('test 2');
 // End of Factory Method test
+
+// Abstract Factory test
+console.log('\n*** ABSTRACT FACTORY METHOD TEST ***\n')
+
+const excelFactory = new ExcelReportFactory();
+const pdfFactory = new PdfReportFactory();
+
+const annualReport1 = excelFactory.createAnnualReport();
+const annualReport2 = pdfFactory.createAnnualReport();
+
+const userReport1 = excelFactory.createReportForUser("john.doe");
+const userReport2 = pdfFactory.createReportForUser("mary.moore");
+
+console.log(annualReport1.getTotal());
+console.log(annualReport2.getTotal());
+console.log(userReport1.getInfo());
+console.log(userReport2.getInfo());
+// End of Abstract Factory test
