@@ -1,4 +1,6 @@
 import { 
+  Button,
+  Checkbox,
   ExcelReportFactory,
   ImageFieldBuilder,
   MySqlQueryExecutor,
@@ -90,3 +92,26 @@ console.log(annualReport2.getTotal());
 console.log(userReport1.getInfo());
 console.log(userReport2.getInfo());
 // End of Abstract Factory test
+
+// Prototype test
+console.log('\n*** PROTOTYPE TEST ***\n')
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const button = new Button(10,20,30,40);
+const checkbox = new Checkbox(false);
+
+delay(2000).then(() => {
+  const buttonClone = button.clone();
+  const checkboxClone = checkbox.clone();
+  
+  console.log(buttonClone.getStatus());
+  console.log(checkboxClone.getStatus());
+  
+  console.log(button.getTimeStamp());
+  console.log(buttonClone.getTimeStamp());
+  
+  console.log(checkbox.getTimeStamp());
+  console.log(checkboxClone.getTimeStamp());
+});
+
+// End of Prototype test

@@ -6,3 +6,5 @@ export { PgQueryExecutor } from "./factory-method/PgQueryExecutor";
 export { MySqlQueryExecutor } from "./factory-method/MySqlQueryExecutor";
 export { ExcelReportFactory } from "./abstract-factory/ExcelReportFactory";
 export { PdfReportFactory } from "./abstract-factory/PdfReportFactory";
+export { Button } from "./prototype/Button";
+export { Checkbox } from "./prototype/Checkbox";
